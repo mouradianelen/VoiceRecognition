@@ -4,7 +4,6 @@ import tarfile
 file_path = '../daps.tar.gz'
 
 with tarfile.open(file_path, 'r:gz') as tar:
-    tar.extractall('extracted_daps')
+    tar.extractall('daps')
 
-# Directory containing the extracted dataset
 audio_dir = 'extracted_daps/'
