@@ -1,10 +1,12 @@
 Download the dataset from : https://zenodo.org/records/4660670
 Download conda, create a conda environment, install libraries :
 
-run the following commands :
+run the following commands for a cpu installation of pytorch :
 
 conda create --name voice_recognition
+
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
 conda install -c conda-forge librosa
 
 
