@@ -1,4 +1,5 @@
 Download the dataset from : https://zenodo.org/records/4660670
+
 Download conda, create a conda environment, install libraries :
 
 run the following commands for a cpu installation of pytorch :
@@ -16,7 +17,7 @@ conda install -c conda-forge librosa
 
 
 
-Use of each python file :
+*** Use of each python file ***
 
 
 1 : Extract_dataset.py
