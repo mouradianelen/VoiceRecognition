@@ -1,5 +1,7 @@
 Download the dataset from : https://zenodo.org/records/4660670
 
+Paper on the dataset : https://ccrma.stanford.edu/~gautham/Site/daps_files/mysore-spl2015.pdf
+
 Download conda, create a conda environment, install libraries :
 
 run the following commands for a cpu installation of pytorch :
