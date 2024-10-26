@@ -16,12 +16,15 @@ class_mapping = {}
 
 for root, dirs, files in os.walk(audio_dir):
     for file in files:
-        if file.endswith(".wav"):
-            speaker_prefix = file.split('_')[0] 
-            if speaker_prefix in class_1_speakers:
-                class_mapping[os.path.join(root, file)] = 1
-            else:
-                class_mapping[os.path.join(root, file)] = 0  
+        # Skip files that start with "._" or are not ".wav" files
+        if file.startswith("._") or not file.endswith(".wav"):
+            continue
+
+        speaker_prefix = file.split("_")[0]
+        if speaker_prefix in class_1_speakers:
+            class_mapping[os.path.join(root, file)] = 1
+        else:
+            class_mapping[os.path.join(root, file)] = 0
 
 print("Class mapping created:")
 print(class_mapping)
@@ -45,4 +48,3 @@ for batch in train_loader:
     print(f"Inputs shape: {inputs.shape}")  
     print(f"Labels: {labels}")  
     break
-
