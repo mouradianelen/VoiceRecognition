@@ -1,3 +1,7 @@
+\daps 
+\spectorgrams
+daps.tar.gz
+simple_cnn_model.pth
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
