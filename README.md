@@ -19,7 +19,7 @@ conda install -c conda-forge librosa
 
 
 
-*** Use of each python file ***
+*** Use of each python file/folder ***
 
 
 1 : Extract_dataset.py
@@ -28,8 +28,9 @@ Extracts the DAPS dataset from a tar.gz file to move them into extracted_daps fo
 2 : Generate_spectrograms.py
 Generates spectrograms from the extracted audio files for visualization not for training.
 
-3 : Daps_dataset.py
-This script creates a dataset that reads audio files, converts them into spectrograms, and labels them based on speaker identity for binary classification tasks.
+3: precomputed_spectograms.py
+Precompute and save the spectograms so that we don't have to compute them each time
 
-4 : train_loader.py
-Initializes a DataLoader with the custom dataset, preparing it for batching and shuffling the data during the training process.
+4 : \src
+You can find the different models
+Class to charge the dasaset considering the precomputed_spectograms folder has been created with the spectograms saved
