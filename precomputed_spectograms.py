@@ -1,8 +1,6 @@
 import os
 import numpy as np
 import librosa
-from torch.utils.data import DataLoader, random_split
-from dap_datasets import DAPSAudioDataset
 import torch
 
 audio_dir = "daps"
@@ -29,7 +27,6 @@ for root, dirs, files in os.walk(audio_dir):
             print(f"Error processing {audio_path}: {e}")
 
 print("Class mapping created:")
-# print(class_mapping)
 
 class_0_count = sum(1 for label in class_mapping.values() if label == 0)
 class_1_count = sum(1 for label in class_mapping.values() if label == 1)
@@ -70,15 +67,44 @@ def preprocess_audio(audio_path, max_length=16000):
         return None
 
 
-def save_precomputed_spectrograms(class_mapping, output_dir="precomputed_spectrograms"):
+def augment_spectrogram(spectrogram):
+    noise = torch.randn_like(spectrogram) * 0.01  # Gaussian noise
+    augmented = spectrogram + noise
+
+    # Time masking
+    time_mask_width = 20
+    time_start = torch.randint(0, spectrogram.shape[2] - time_mask_width, (1,)).item()
+    augmented[:, :, time_start:time_start + time_mask_width] = 0
+
+    # Frequency masking
+    freq_mask_width = 10
+    freq_start = torch.randint(0, spectrogram.shape[1] - freq_mask_width, (1,)).item()
+    augmented[:, freq_start:freq_start + freq_mask_width, :] = 0
+
+    return augmented
+
+
+def save_precomputed_spectrograms(
+    class_mapping, output_dir="precomputed_spectrograms_aug",augment_class_1=True, augmentations_per_sample=2
+):
     os.makedirs(output_dir, exist_ok=True)
     for audio_path, label in class_mapping.items():
         spectrogram_tensor = preprocess_audio(audio_path)
         if spectrogram_tensor is not None:
+            # Save original spectrogram
+            file_name = os.path.splitext(os.path.basename(audio_path))[0]
+            original_file_path = os.path.join(output_dir, f"{file_name}.pt")
+            torch.save(spectrogram_tensor, original_file_path)
 
-            file_name = os.path.splitext(os.path.basename(audio_path))[0] + ".pt"
-            torch.save(spectrogram_tensor, os.path.join(output_dir, file_name))
-    print("All spectrograms precomputed and saved.")
+            # Augment for class 1 to balance the dataset
+            if label == 1 and augment_class_1:
+                for aug_idx in range(augmentations_per_sample):
+                    augmented_spectrogram = augment_spectrogram(spectrogram_tensor)
+                    augmented_file_name = f"{file_name}_aug{aug_idx + 1}.pt"
+                    augmented_file_path = os.path.join(output_dir, augmented_file_name)
+                    torch.save(augmented_spectrogram, augmented_file_path)
+
+    print("All spectrograms (original and augmented) precomputed and saved.")
 
 
 save_precomputed_spectrograms(class_mapping)

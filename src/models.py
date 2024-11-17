@@ -17,10 +17,12 @@ class Net(nn.Module):
 
     def _get_fc1_input_size(self):
         with torch.no_grad():
-            x = torch.zeros(1, 1, 128, 16000)
+            x = torch.zeros(1, 1, 64, 64)  
             x = self.pool(F.relu(self.conv1(x)))
             x = self.pool(F.relu(self.conv2(x)))
-            return x.numel()
+            output_size = x.numel()  
+            print(f"Output size after all conv and pool layers: {output_size}")
+            return output_size
 
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
