@@ -5,7 +5,7 @@ import numpy as np
 import torchvision.transforms as transforms
 
 class DAPSAudioDataset:
-    def __init__(self, class_mapping, spectrogram_dir="precomputed_spectrograms", crop_size=64, transform=None):
+    def __init__(self, class_mapping, spectrogram_dir="precomputed_spectrograms_aug", crop_size=64, transform=None):
         self.class_mapping = list(class_mapping.items())
         self.spectrogram_dir = spectrogram_dir
         self.crop_size = crop_size
@@ -13,12 +13,13 @@ class DAPSAudioDataset:
            transforms.Resize((64, 8000)),
            transforms.RandomCrop(crop_size),  
         ])
+        
+    def augment(self, spectrogram):
+        noise = torch.randn_like(spectrogram) * 0.01  # Scale the noise
+        return spectrogram + noise
 
     def __getitem__(self, idx):
-        audio_path, label = self.class_mapping[idx]
-        file_name = os.path.splitext(os.path.basename(audio_path))[0] + ".pt"
-        spectrogram_path = os.path.join(self.spectrogram_dir, file_name)
-
+        spectrogram_path, label = self.class_mapping[idx]
         try:
             spectrogram_tensor = torch.load(spectrogram_path)
             if self.transform:
