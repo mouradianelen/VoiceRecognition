@@ -6,9 +6,9 @@ import torch.nn.functional as F
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 6, 5)
+        self.conv1 = nn.Conv2d(1, 60, 5)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.conv2 = nn.Conv2d(60, 160, 5)
 
         self.fc1_input_size = self._get_fc1_input_size()
         self.fc1 = nn.Linear(self.fc1_input_size, 120)

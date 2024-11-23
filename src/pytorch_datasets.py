@@ -5,7 +5,7 @@ import numpy as np
 import torchvision.transforms as transforms
 
 class DAPSAudioDataset:
-    def __init__(self, class_mapping, spectrogram_dir="precomputed_spectrograms_aug", crop_size=64, transform=None):
+    def __init__(self, class_mapping, spectrogram_dir="precomputed_spectrograms_aug_3", crop_size=64, transform=None):
         self.class_mapping = list(class_mapping.items())
         self.spectrogram_dir = spectrogram_dir
         self.crop_size = crop_size
