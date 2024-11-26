@@ -2,6 +2,7 @@ import os
 import numpy as np
 import librosa
 import torch
+import torchaudio.transforms as T
 
 audio_dir = "daps"
 
@@ -68,27 +69,19 @@ def preprocess_audio(audio_path, max_length=16000):
 
 
 def augment_spectrogram(spectrogram):
+    torch.random.manual_seed(4)
+
+    time_masking = T.TimeMasking(time_mask_param=80)
+    freq_masking = T.FrequencyMasking(freq_mask_param=80)
+    spectrogram = time_masking(spectrogram)
+    spectrogram = freq_masking(spectrogram)
     noise = torch.randn_like(spectrogram) * 0.01  # Gaussian noise
-    augmented = spectrogram + noise
+    spectrogram = spectrogram + noise
 
-    # Time masking
-    time_mask_width = 20
-    time_start = torch.randint(0, spectrogram.shape[2] - time_mask_width, (1,)).item()
-    augmented[:, :, time_start : time_start + time_mask_width] = 0
-
-    # Frequency masking
-    freq_mask_width = 10
-    freq_start = torch.randint(0, spectrogram.shape[1] - freq_mask_width, (1,)).item()
-    augmented[:, freq_start : freq_start + freq_mask_width, :] = 0
-
-    return augmented
-
+    return spectrogram
 
 def save_precomputed_spectrograms(
-    class_mapping,
-    output_dir="precomputed_spectrograms_aug",
-    augment_class_1=True,
-    augmentations_per_sample=2,
+    class_mapping, output_dir="precomputed_spectrograms_aug",augment_class_1=True, augmentations_per_sample=1
 ):
     os.makedirs(output_dir, exist_ok=True)
     for audio_path, label in class_mapping.items():

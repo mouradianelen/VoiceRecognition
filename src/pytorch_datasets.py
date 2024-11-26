@@ -48,10 +48,6 @@ class DAPSAudioDataset_with_cropping(Dataset):
             )
         )
 
-    def augment(self, spectrogram):
-        noise = torch.randn_like(spectrogram) * 0.01  # Scale the noise
-        return spectrogram + noise
-
     def __getitem__(self, idx):
         spectrogram_path, label = self.class_mapping[idx]
         try:
