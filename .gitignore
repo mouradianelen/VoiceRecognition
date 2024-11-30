@@ -1,6 +1,9 @@
 \daps 
 \spectorgrams
 \precomputed_spectrograms
+\precomputed_spectrograms_aug
+
+simple_cnn_model*
 daps.tar.gz
 simple_cnn_model.pth
 simple_cnn_model_reduced.pth
