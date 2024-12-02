@@ -4,14 +4,11 @@ import torch.nn.functional as F
 
 
 class Net(nn.Module):
-    def __init__(self, freq_bins, time_steps):
+    def __init__(self):
         super(Net, self).__init__()
-        self.freq_bins = freq_bins
-        self.time_steps = time_steps
-
-        self.conv1 = nn.Conv2d(1, 60, 5)
+        self.conv1 = nn.Conv2d(1, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(60, 160, 5)
+        self.conv2 = nn.Conv2d(6, 16, 5)
 
         self.fc1_input_size = self._get_fc1_input_size()
         self.fc1 = nn.Linear(self.fc1_input_size, 120)
@@ -20,8 +17,7 @@ class Net(nn.Module):
 
     def _get_fc1_input_size(self):
         with torch.no_grad():
-            
-            x = torch.zeros(1, 1, self.freq_bins, self.time_steps)
+            x = torch.zeros(1, 1, 128, 16000)
             x = self.pool(F.relu(self.conv1(x)))
             x = self.pool(F.relu(self.conv2(x)))
             return x.numel()
