@@ -1,7 +1,7 @@
 import tarfile
 
 # Extract the DAPS dataset
-file_path = 'daps.tar.gz'
+file_path = r'C:\Users\Huawei\Desktop\daps.tar.gz'
 # file_path = '../daps.tar.gz'
 
 with tarfile.open(file_path, 'r:gz') as tar:
