@@ -6,7 +6,6 @@ from src.pytorch_datasets import DAPSAudioDataset
 import torch
 
 audio_dir = "daps"
-
 class_1_speakers = ["f1", "f7", "f8", "m3", "m6", "m8"]
 
 class_mapping = {}
@@ -82,3 +81,4 @@ def save_precomputed_spectrograms(class_mapping, output_dir="precomputed_spectro
 
 
 save_precomputed_spectrograms(class_mapping)
+ 
