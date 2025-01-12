@@ -9,10 +9,10 @@ class Net(nn.Module):
         self.freq_bins = freq_bins
         self.time_steps = time_steps
 
-        self.conv1 = nn.Conv2d(1, 60, 5)
+        self.conv1 = nn.Conv2d(1, 60, 5) ### You can change 60 to 30
         self.bn1 = nn.BatchNorm2d(60)  
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(60, 160, 5)
+        self.conv2 = nn.Conv2d(60, 160, 5) ### then you need to change 60 to 30
         self.bn2 = nn.BatchNorm2d(160)
         self.conv3 = nn.Conv2d(160, 320, 3)  
         self.bn3 = nn.BatchNorm2d(320)

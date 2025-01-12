@@ -1,0 +1,134 @@
+{
+    "metadata": {
+        "model": "Net(\n  (conv1): Conv2d(1, 60, kernel_size=(5, 5), stride=(1, 1))\n  (bn1): BatchNorm2d(60, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n  (conv2): Conv2d(60, 160, kernel_size=(5, 5), stride=(1, 1))\n  (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (conv3): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1))\n  (bn3): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (fc1): Linear(in_features=8000, out_features=120, bias=True)\n  (dropout1): Dropout(p=0.2, inplace=False)\n  (fc2): Linear(in_features=120, out_features=84, bias=True)\n  (dropout2): Dropout(p=0.3, inplace=False)\n  (fc3): Linear(in_features=84, out_features=10, bias=True)\n)",
+        "freq_bins": 64,
+        "time_steps": 64,
+        "batch_size": 32,
+        "train_set_size": 1560,
+        "optimizer": "Adam",
+        "loss_function": "CrossEntropyLoss()",
+        "num_epochs": 30
+    },
+    "data": {
+        "1": {
+            "loss": 1.0634548711776732,
+            "lr": 0.0001
+        },
+        "2": {
+            "loss": 0.7464331603050232,
+            "lr": 0.0001
+        },
+        "3": {
+            "loss": 0.62051509141922,
+            "lr": 0.0001
+        },
+        "4": {
+            "loss": 0.5894644069671631,
+            "lr": 0.0001
+        },
+        "5": {
+            "loss": 0.5371640741825103,
+            "lr": 0.0001
+        },
+        "6": {
+            "loss": 0.5210944259166718,
+            "lr": 0.0001
+        },
+        "7": {
+            "loss": 0.5233037006855011,
+            "lr": 0.0001
+        },
+        "8": {
+            "loss": 0.4993778574466705,
+            "lr": 0.0001
+        },
+        "9": {
+            "loss": 0.477480092048645,
+            "lr": 0.0001
+        },
+        "10": {
+            "loss": 0.48050089478492736,
+            "lr": 0.0001
+        },
+        "11": {
+            "loss": 0.47035766959190367,
+            "lr": 0.0001
+        },
+        "12": {
+            "loss": 0.44568832278251647,
+            "lr": 0.0001
+        },
+        "13": {
+            "loss": 0.4500762891769409,
+            "lr": 0.0001
+        },
+        "14": {
+            "loss": 0.42233176112174986,
+            "lr": 0.0001
+        },
+        "15": {
+            "loss": 0.43827812910079955,
+            "lr": 0.0001
+        },
+        "16": {
+            "loss": 0.4248265266418457,
+            "lr": 0.0001
+        },
+        "17": {
+            "loss": 0.40963268280029297,
+            "lr": 0.0001
+        },
+        "18": {
+            "loss": 0.41487855911254884,
+            "lr": 0.0001
+        },
+        "19": {
+            "loss": 0.3745983934402466,
+            "lr": 0.0001
+        },
+        "20": {
+            "loss": 0.3776850998401642,
+            "lr": 0.0001
+        },
+        "21": {
+            "loss": 0.37721108317375185,
+            "lr": 0.0001
+        },
+        "22": {
+            "loss": 0.36885965704917906,
+            "lr": 0.0001
+        },
+        "23": {
+            "loss": 0.3639127445220947,
+            "lr": 0.0001
+        },
+        "24": {
+            "loss": 0.380048326253891,
+            "lr": 0.0001
+        },
+        "25": {
+            "loss": 0.3435038393735886,
+            "lr": 0.0001
+        },
+        "26": {
+            "loss": 0.32883307337760925,
+            "lr": 0.0001
+        },
+        "27": {
+            "loss": 0.331344228386879,
+            "lr": 0.0001
+        },
+        "28": {
+            "loss": 0.34050738930702207,
+            "lr": 0.0001
+        },
+        "29": {
+            "loss": 0.34041398227214814,
+            "lr": 0.0001
+        },
+        "30": {
+            "loss": 0.29860467970371246,
+            "lr": 0.0001
+        }
+    }
+}
