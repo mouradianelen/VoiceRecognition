@@ -1,0 +1,133 @@
+{
+    "metadata": {
+        "model": "Net(\n  (conv1): Conv2d(1, 60, kernel_size=(5, 5), stride=(1, 1))\n  (bn1): BatchNorm2d(60, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n  (conv2): Conv2d(60, 160, kernel_size=(5, 5), stride=(1, 1))\n  (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (conv3): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1))\n  (bn3): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (fc1): Linear(in_features=8000, out_features=120, bias=True)\n  (dropout1): Dropout(p=0.2, inplace=False)\n  (fc2): Linear(in_features=120, out_features=84, bias=True)\n  (dropout2): Dropout(p=0.3, inplace=False)\n  (fc3): Linear(in_features=84, out_features=10, bias=True)\n)",
+        "freq_bins": 64,
+        "time_steps": 64,
+        "batch_size": 32,
+        "optimizer": "SGD",
+        "loss_function": "CrossEntropyLoss()",
+        "num_epochs": 30
+    },
+    "data": {
+        "1": {
+            "loss": 1.4651289534568788,
+            "lr": 0.001
+        },
+        "2": {
+            "loss": 0.7478519725799561,
+            "lr": 0.001
+        },
+        "3": {
+            "loss": 0.6832127141952514,
+            "lr": 0.001
+        },
+        "4": {
+            "loss": 0.6119490814208984,
+            "lr": 0.001
+        },
+        "5": {
+            "loss": 0.5785162734985352,
+            "lr": 0.001
+        },
+        "6": {
+            "loss": 0.5385290038585663,
+            "lr": 0.001
+        },
+        "7": {
+            "loss": 0.5544477534294129,
+            "lr": 0.001
+        },
+        "8": {
+            "loss": 0.5373732733726502,
+            "lr": 0.001
+        },
+        "9": {
+            "loss": 0.523258513212204,
+            "lr": 0.001
+        },
+        "10": {
+            "loss": 0.5191363453865051,
+            "lr": 0.001
+        },
+        "11": {
+            "loss": 0.5040024876594543,
+            "lr": 0.001
+        },
+        "12": {
+            "loss": 0.5158276033401489,
+            "lr": 0.001
+        },
+        "13": {
+            "loss": 0.5066471135616303,
+            "lr": 0.001
+        },
+        "14": {
+            "loss": 0.4982430684566498,
+            "lr": 0.001
+        },
+        "15": {
+            "loss": 0.5003057205677033,
+            "lr": 0.001
+        },
+        "16": {
+            "loss": 0.49567065834999086,
+            "lr": 0.001
+        },
+        "17": {
+            "loss": 0.49147189140319825,
+            "lr": 0.001
+        },
+        "18": {
+            "loss": 0.4918555355072021,
+            "lr": 0.001
+        },
+        "19": {
+            "loss": 0.48689418435096743,
+            "lr": 0.001
+        },
+        "20": {
+            "loss": 0.47540226578712463,
+            "lr": 0.001
+        },
+        "21": {
+            "loss": 0.4824329614639282,
+            "lr": 0.001
+        },
+        "22": {
+            "loss": 0.49630078196525573,
+            "lr": 0.001
+        },
+        "23": {
+            "loss": 0.47037864923477174,
+            "lr": 0.001
+        },
+        "24": {
+            "loss": 0.4598277163505554,
+            "lr": 0.001
+        },
+        "25": {
+            "loss": 0.4423686134815216,
+            "lr": 0.001
+        },
+        "26": {
+            "loss": 0.44944062948226926,
+            "lr": 0.001
+        },
+        "27": {
+            "loss": 0.48234964966773985,
+            "lr": 0.001
+        },
+        "28": {
+            "loss": 0.44013599514961244,
+            "lr": 0.001
+        },
+        "29": {
+            "loss": 0.4523848271369934,
+            "lr": 0.001
+        },
+        "30": {
+            "loss": 0.4219490432739258,
+            "lr": 0.001
+        }
+    }
+}
